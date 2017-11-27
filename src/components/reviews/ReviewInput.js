@@ -21,7 +21,7 @@ class ReviewInput extends Component {
       type: 'ADD_REVIEW',
       review: {
         text: this.state.text,
-        restaurantId: this.props.restaurantId
+        restaurantId: this.props.id
       },
     });
     this.setState({
@@ -29,13 +29,12 @@ class ReviewInput extends Component {
     });
   }
 
-
   render() {
     return (
       <div>
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <input type="text" value={this.state.text} onChange={(event) => this.handleOnChange(event)} />
-          <input type="submit" />
+          <input type="text" value={this.state.text}  onChange={(event) => this.handleOnChange(event)} />
+          <p><input type="submit" className="btn-primary" /></p>
         </form>
       </div>
     );

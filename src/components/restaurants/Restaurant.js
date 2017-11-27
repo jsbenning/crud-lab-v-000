@@ -3,6 +3,7 @@ import ReviewInput from '../reviews/ReviewInput';
 
 
 class Restaurant extends Component {
+
   handleDelete = () => {
     this.props.store.dispatch({
       type: 'DELETE_RESTAURANT',
@@ -14,10 +15,12 @@ class Restaurant extends Component {
     return (
       <div>
         <ul>
-          <li>{this.props.restaurant.text}
+          <li><h2>{this.props.restaurant.text}</h2>
             <p>
-              <button onClick={this.handleDelete}>Delete!</button>
-              <ReviewInput restaurantId={this.props.id} />
+              <button className="deleteButton btn-warning" onClick={this.handleDelete}>Delete!</button>
+              <h3>Add a Review:</h3>
+              <ReviewInput store={this.props.store} id={this.props.id} />
+              <Reviews store={this.props.store} id={this.props.id} />
             </p>
           </li>
         </ul>
